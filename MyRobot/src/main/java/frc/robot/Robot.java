@@ -16,8 +16,10 @@ import edu.wpi.first.hal.FRCNetComm.tInstances;
 import edu.wpi.first.hal.FRCNetComm.tResourceType;
 import edu.wpi.first.hal.HAL;
 import edu.wpi.first.wpilibj.TimedRobot;
-import edu.wpi.first.wpilibj2.command.Command;
-import edu.wpi.first.wpilibj2.command.CommandScheduler;
+import edu.wpi.first.wpilibj.GenericHID.Hand;
+import edu.wpi.first.wpilibj.command.Scheduler;
+import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.command.CommandScheduler;
 import org.usfirst.frc0.MyRobot.OI;
 
 /**
@@ -112,8 +114,17 @@ public class Robot extends TimedRobot {
      */
     @Override
     public void teleopPeriodic() {
+        Scheduler.getInstance().run();
+        double y_axis=RobotContainer.oi.joystick1.getY(Hand.kLeft);
+        double x_axis=RobotContainer.oi.joystick1.getX(Hand.kRight);
+        if(x_axis<.15 && x_axis>-.15) {
+            x_axis=0;
+        }
+        if(y_axis<.15 && x_axis>-.15){
+            y_axis=0;
+        }
+    RobotContainer.arcadeDrive.axium
     }
-
     @Override
     public void testInit() {
         // Cancels all running commands at the start of test mode.

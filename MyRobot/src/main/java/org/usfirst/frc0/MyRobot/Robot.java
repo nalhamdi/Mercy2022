@@ -17,6 +17,10 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import frc.robot.subsystems.ArcadeDrive;
+import frc.robot.subsystems.Climber;
+import frc.robot.subsystems.Intake;
+
 import org.usfirst.frc0.MyRobot.commands.*;
 import org.usfirst.frc0.MyRobot.subsystems.*;
 
