@@ -30,6 +30,8 @@ public class ArcadeDrive extends SubsystemBase {
   public ArcadeDrive() {
 rightFrontDriveMotor.setInverted(true);
 rightRearDriveMotor.setInverted(true);
+leftFrontDriveMotor.setInverted(true);
+leftRearDriveMotor.setInverted(true);
 
 }
 
@@ -38,14 +40,15 @@ rightRearDriveMotor.setInverted(true);
     // This method will be called once per scheduler run
   }
 
-  public void arcadedrive(double x_axis, double y_axis) {
+  public void arcadedrive(double y_axis, double x_axis) {
     if(x_axis<.15 && x_axis>-.15) {
               x_axis=0;
           }
-          if(y_axis<.15 && x_axis>-.15){
+          if(y_axis<.15 && y_axis>-.15){
               y_axis=0;
           }
-    arcadedrive.tankDrive(y_axis, x_axis, true);
+    x_axis = x_axis * Constants.forwardArcadeDrive;
+    arcadedrive.arcadeDrive(y_axis, x_axis, true);
     SmartDashboard.putNumber("Joystick X_axis", x_axis);
 
     System.out.println("x-axis: " + x_axis);

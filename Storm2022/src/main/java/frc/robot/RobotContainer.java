@@ -57,8 +57,8 @@ public class RobotContainer {
   public RobotContainer() {
     // Configure the button bindings
     arcadeDrive.setDefaultCommand(new RunCommand(() -> arcadeDrive.arcadedrive(
-      Controller1.getRawAxis(1),
-      -Controller1.getRawAxis(0)), arcadeDrive));
+      Controller1.getLeftY(),
+      -Controller1.getRightX()), arcadeDrive));
     configureButtonBindings();
   }
 
